@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CRMLeads.Models.LeadsEntity>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AddLead">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.LeadDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeadSource)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeadStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextFollowUpDate)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.LeadDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeadSource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeadStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextFollowUpDate)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "EditLead", new { Id = item.Id }) |
+
+                    @Html.ActionLink("Delete", "DeleteLead", new { Id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
